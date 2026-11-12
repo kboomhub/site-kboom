@@ -1,0 +1,22 @@
+SITE DO KBOOM - COMO ATUALIZAR
+
+O QUE TEM AQUI
+  index.html  -> o visual do site (voce nao precisa mexer)
+  dados.js    -> os textos: eventos, albuns da galeria e links das redes (e aqui que voce edita!)
+  fotos/      -> as fotos dos eventos, uma pasta por evento
+
+ROTINA PARA ATUALIZAR
+  1) Abra o dados.js no Bloco de Notas e edite (siga os comentarios dentro dele).
+  2) Coloque as fotos novas em fotos/nome-do-evento
+  3) Selecione TUDO que esta dentro da pasta do site (index.html, dados.js e fotos),
+     clique com o botao direito > Enviar para > Pasta compactada.
+     IMPORTANTE: selecione o CONTEUDO, nao a pasta de fora. O index.html precisa ficar
+     na raiz do zip.
+  4) No Cloudflare: abra o projeto > Create a new deployment > production >
+     arraste o zip > Deploy.
+
+DICAS
+  - Fotos: reduza para cerca de 1600 px no lado maior, em JPG. Nomes simples, sem acento nem espaco.
+  - Limite do envio por arrastar: 1.000 arquivos no total e 25 MB por arquivo.
+  - Cada envio substitui o anterior: sempre envie o site COMPLETO (fotos antigas + novas).
+  - Se o site ficar em branco depois de editar, quase sempre faltou uma virgula, uma aspa ou uma chave no dados.js.
