@@ -24,7 +24,7 @@ const CONFIG = {
 // "link": endereco do ingresso ou do post. Deixe "" para nao mostrar o botao.
 const EVENTOS = [
   { dia: "20", mes: "Nov", nome: "All-K Party LEVEL UP", local: "Bunker, Balneário Camboriú - SC", status: "Ingressos disponíveis", link: "https://articket.com.br/e/7326/all-k-party-level-up" },
-  { dia: "19 e 20", mes: "Dez", nome: "OMAKE EDIÇÃO DE NATAL", local: "Parque Dom Bosco, Itajaí-SC", status: "Ingressos abertos", link: "https://supertixs.com/e/omakenatal2026" }
+  { dia: "19 e 20", mes: "Dez", nome: "OMAKE EDIÇÃO DE NATAL", local: "Parque Dom Bosco, Itajaí-SC", status: "Ingressos disponíveis", link: "https://supertixs.com/e/omakenatal2026" }
 ];
 
 // ---------- 3) GALERIA (ALBUNS DE FOTOS) ----------
