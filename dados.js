@@ -43,13 +43,15 @@ const EVENTOS = [
 //     fotos: ["001.jpg", "002.jpg", "003.jpg"]
 //   },
 const ALBUNS = [
-  // ---- EXEMPLOS (apague estes dois blocos antes de divulgar) ----
+  // 
   {
-    nome: "Evento de exemplo A",
+    nome: "KPOPWEEN",
     data: "Nov 2026",
-    pasta: "fotos/exemplo-a",
+    pasta: "fotos/kpopween",
     ajuste: "contain", cor: "#f892c4",
-    fotos: ["01.webp", "02.webp", "03.webp", "04.webp"]
+    fotos: Array.from({ length: 60 }, (_, i) => `kpopween (${i + 1}).jpg`)
+  },
+
   },
   {
     nome: "Evento de exemplo B",
