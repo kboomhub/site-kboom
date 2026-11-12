@@ -52,6 +52,7 @@ const ALBUNS = [
 // ---------- 4) TEXTOS DO SITE ----------
 // Troque o que estiver entre aspas. Se apagar uma linha inteira, volta o texto padrao.
 const TEXTOS = {
+  titulo_aba: "KBOOM | Hub de K-pop em Itajaí",
   hero_lema: "O “K” para além do pop",
   hero_sub: "Hub de fã pra fã: eventos, fotos e cultura pop em Itajaí e região.",
 
