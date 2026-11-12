@@ -4,6 +4,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Kboom — hub de fã pra fã</title>
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
 <meta name="description" content="Kboom: hub de K-pop e cultura pop em Itajaí e região. Eventos, fotos para baixar e muito mais.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -193,6 +196,7 @@ const esc = t => String(t).replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":
 ALBUNS.forEach(a => { a.fotos = a.fotos.map(f => typeof f === "string" ? { src: (a.pasta ? a.pasta + "/" : "") + f, nome: f } : f); });
 const cov = a => (a.ajuste || "cover") === "cover";
 if (typeof TEXTOS !== "undefined") document.querySelectorAll("[data-t]").forEach(el => { const v = TEXTOS[el.dataset.t]; if (v) el.textContent = v; });
+if (typeof TEXTOS !== "undefined" && TEXTOS.titulo_aba) document.title = TEXTOS.titulo_aba;
 
 $("#lista").innerHTML = EVENTOS.length ? EVENTOS.map(e => `
   <article class="ev">
