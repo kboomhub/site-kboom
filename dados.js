@@ -50,7 +50,5 @@ const ALBUNS = [
     pasta: "fotos/kpopween",
     ajuste: "contain", cor: "#f892c4",
     fotos: Array.from({ length: 60 }, (_, i) => `kpopween (${i + 1}).jpg`)
-  },
-
   }
 ];
