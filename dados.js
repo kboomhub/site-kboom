@@ -52,12 +52,5 @@ const ALBUNS = [
     fotos: Array.from({ length: 60 }, (_, i) => `kpopween (${i + 1}).jpg`)
   },
 
-  },
-  {
-    nome: "Evento de exemplo B",
-    data: "Out 2026",
-    pasta: "fotos/exemplo-b",
-    ajuste: "contain", cor: "#c4cf31",
-    fotos: ["01.webp", "02.webp"]
   }
 ];
