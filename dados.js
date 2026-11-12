@@ -44,7 +44,7 @@ const ALBUNS = [
     nome: "KPOPWEEN",
     data: "Nov 2026",
     pasta: "fotos/kpopween",
-    ajuste: "contain", cor: "#f892c4",
+    ajuste: "contain", cor: "#c32337",
     fotos: Array.from({ length: 60 }, (_, i) => `kpopween (${i + 1}).jpg`)
   }
 ];
