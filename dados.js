@@ -54,7 +54,7 @@ const ALBUNS = [
 const TEXTOS = {
   titulo_aba: "KBOOM | Hub de K-pop em Itajaí",
   hero_lema: "O “K” para além do pop",
-  hero_sub: "Hub de fã pra fã: eventos, fotos e cultura pop em Itajaí e região.",
+  hero_sub: "Hub de fã pra fã: eventos, música e cultura K-pop em Itajaí e região.",
 
   eventos_titulo: "Próximos eventos",
   eventos_intro: "Anote na agenda e chame a galera.",
