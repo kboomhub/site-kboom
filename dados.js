@@ -63,7 +63,25 @@ const TEXTOS = {
   galeria_intro: "Confira as fotos e faça download.",
   galeria_aviso: "Créditos: Kai e Gabi.",
 
+  inscricoes_titulo: "Inscrições",
+  inscricoes_intro: "Garanta sua vaga: é só clicar e preencher o formulário.",
+
   quem_titulo: "Quem somos",
   quem_p1: "O Kboom é um hub feito de fã pra fã. Nasceu pra juntar quem vive K-pop e cultura pop na cena de Itajaí e região.",
   quem_p2: "Viver eras completas é saber que tudo precisa de conceito e cuidado. Por isso a gente faz consultoria, planejamento e criação para eventos e fandoms."
 };
+
+// ===== INSCRIÇÕES (links dos formulários do Google) =====
+// Para adicionar: copie um bloco { ... }, cole abaixo (com vírgula no final) e troque os textos.
+// Para remover: apague o bloco inteiro. Sem nenhum bloco, aparece "abrem em breve".
+// status: "Abertas" ou "Encerradas" (se for Encerradas, o botão some).
+const INSCRICOES = [
+  {
+    nome: "Concurso K-pop Cover Dance — OMAKE 2026",
+    descricao: "20 de dezembro às 17h30 · Parque Dom Bosco, Rua José Gall, 75 · Itajaí/SC",
+    destaque: "20 Dez",
+    status: "Abertas",
+    link: "https://docs.google.com/forms/d/e/1FAIpQLSfIibRn09ZeLt7Phz3RAiayqtbjTt9Jlob_oVFHSxsEJECRMA/viewform"
+  },
+  // Para adicionar outra inscrição, copie o bloco acima, cole aqui e troque os textos.
+];
