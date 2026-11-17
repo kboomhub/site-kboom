@@ -83,9 +83,11 @@ h2{font:400 clamp(1.35rem,4.2vw,2.6rem)/1.35 var(--titulo);margin:0 0 .5em;overf
 /* selo, botões, torcida */
 .ev .data{position:relative}
 .lista .ev,#inscricoes .ev{overflow:visible}.ev .data{border-radius:15px 15px 0 0}
-.selo{position:absolute;right:8px;top:-13px;transform:rotate(4deg);z-index:2;background:var(--vl);color:var(--preto);border:2px solid var(--preto);border-radius:8px;padding:2px 7px 3px;text-align:center;line-height:1;box-shadow:2px 2px 0 var(--preto);white-space:nowrap}
-.data .selo i{display:block;font:700 .55rem/1 var(--texto);font-style:normal;text-transform:uppercase;letter-spacing:.08em}
-.data .selo b{font:700 .88rem/1.05 var(--texto);text-transform:uppercase;letter-spacing:.02em}
+.lista{margin-top:56px}
+.data .selo{position:absolute;right:16px;top:-30px;width:86px;height:86px;border-radius:50%;background:var(--vl);color:var(--preto);border:3px solid var(--preto);box-shadow:3px 3px 0 var(--preto);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;line-height:1;transform:rotate(-8deg);z-index:2}
+.data .selo i{font:700 .6rem/1 var(--texto);font-style:normal;text-transform:uppercase;letter-spacing:.08em}
+.data .selo b{font:400 1.25rem/1 var(--titulo);margin:7px 0 6px}
+.data .selo.s b{font-size:1.05rem;margin:0}
 .adesivo.fone{z-index:3}
 @media(max-width:760px){.adesivo.fone{top:30px;right:12px;width:88px}}
 .contagem{display:inline-flex;flex-wrap:wrap;align-items:center;gap:6px 12px;background:var(--vl);color:var(--preto);border:3px solid var(--bege);border-radius:999px;padding:6px 18px;font-weight:700;font-size:1.2rem;margin:4px 0 0}
@@ -93,7 +95,6 @@ h2{font:400 clamp(1.35rem,4.2vw,2.6rem)/1.35 var(--titulo);margin:0 0 .5em;overf
 .contagem[hidden]{display:none}
 .botoes{margin-top:auto;display:flex;flex-wrap:wrap;gap:10px}
 .ev .botoes .btn{margin-top:0;align-self:auto}
-.ev .btn.alt,#inscricoes .ev .btn.alt{background:var(--bege);color:var(--preto)}
 #torcida{background:var(--rosa);padding:clamp(36px,6vw,64px) clamp(8px,2vw,24px) 0;position:relative;overflow:hidden;text-align:center;border-top:3px solid var(--preto)}
 #torcida h2{font-size:clamp(1.1rem,3vw,1.8rem);color:var(--verm);margin:0 0 4px;position:relative;z-index:1}
 #torcida p{margin:0 0 6px;color:var(--preto);position:relative;z-index:1}
@@ -321,46 +322,25 @@ const p2 = n => String(n).padStart(2, "0");
 const ymd = d => d.getFullYear() + p2(d.getMonth() + 1) + p2(d.getDate());
 function selo(e) {
   if (!e.data || passou(e)) return "";
-  const n = dias(e.data); let a = "", b;
-  if (n < 0) b = "rolando!"; else if (n === 0) b = "é hoje!"; else if (n === 1) b = "é amanhã!"; else { a = "faltam"; b = n + " dias"; }
-  return `<span class="selo">${a ? `<i>${a}</i>` : ""}<b>${b}</b></span>`;
+  const n = dias(e.data);
+  if (n < 0) return `<span class="selo s"><b>rolando!</b></span>`;
+  if (n === 0) return `<span class="selo s"><b>hoje!</b></span>`;
+  if (n === 1) return `<span class="selo"><i>falta</i><b>1</b><i>dia</i></span>`;
+  return `<span class="selo"><i>faltam</i><b>${n}</b><i>dias</i></span>`;
 }
-function agendaBtn(e, nome, local) {
-  return e.data && !passou(e) ? `<button class="btn alt" type="button" data-ics="${esc(JSON.stringify({ nome, local: local || "", data: e.data, fim: e.fim || "", hora: e.hora || "", horaFim: e.horaFim || "" }))}">Adicionar à agenda</button>` : "";
-}
-function baixarIcs(o) {
-  const ini = dt(o.data), ate = dt(o.fim || o.data);
-  let d1, d2;
-  if (o.hora) {
-    const [h, m] = o.hora.split(":").map(Number); const [h2, m2] = (o.horaFim || "").split(":").map(Number);
-    d1 = "DTSTART:" + ymd(ini) + "T" + p2(h) + p2(m || 0) + "00";
-    const fim = o.horaFim ? new Date(ate.getFullYear(), ate.getMonth(), ate.getDate(), h2, m2 || 0) : new Date(ini.getFullYear(), ini.getMonth(), ini.getDate(), h + 3, m || 0);
-    d2 = "DTEND:" + ymd(fim) + "T" + p2(fim.getHours()) + p2(fim.getMinutes()) + "00";
-  } else {
-    const prox = new Date(ate); prox.setDate(prox.getDate() + 1);
-    d1 = "DTSTART;VALUE=DATE:" + ymd(ini); d2 = "DTEND;VALUE=DATE:" + ymd(prox);
-  }
-  const t = x => String(x).replace(/[\;,]/g, m => "\\" + m).replace(/\n/g, "\\n");
-  const ics = ["BEGIN:VCALENDAR", "VERSION:2.0", "PRODID:-//Kboom//PT", "BEGIN:VEVENT", "UID:" + ymd(ini) + "-" + Math.abs([...o.nome].reduce((a, c) => a * 31 + c.charCodeAt(0) | 0, 7)) + "@kboom.com.br",
-    "DTSTAMP:" + ymd(new Date()) + "T000000Z", d1, d2, "SUMMARY:" + t(o.nome), o.local ? "LOCATION:" + t(o.local) : "", "END:VEVENT", "END:VCALENDAR"].filter(Boolean).join("\r\n");
-  const a = document.createElement("a");
-  a.href = URL.createObjectURL(new Blob([ics], { type: "text/calendar;charset=utf-8" }));
-  a.download = "kboom-" + ymd(ini) + ".ics"; document.body.appendChild(a); a.click(); a.remove();
-  setTimeout(() => URL.revokeObjectURL(a.href), 4000);
-}
-document.addEventListener("click", ev => { const b = ev.target.closest("[data-ics]"); if (b) baixarIcs(JSON.parse(b.dataset.ics)); });
 
 $("#lista").innerHTML = EVENTOS.length ? EVENTOS.map(e => {
   const fim = passou(e);
+  const esgot = /esgot|encerr/i.test(e.status || "");
   const status = fim ? "Encerrado" : e.status;
   return `
   <article class="ev">
     <div class="data"><b>${esc(e.dia)}</b><span>${esc(e.mes)}</span>${selo(e)}</div>
     <div class="corpo">
-      <span class="tag${fim || /esgot|encerr/i.test(e.status || "") ? " fim" : ""}">${esc(status)}</span>
+      ${fim || esgot ? `<span class="tag fim">${esc(status)}</span>` : ""}
       <h3>${esc(e.nome)}</h3>
       <p>${esc(e.local)}</p>
-      <div class="botoes">${e.link && !fim ? `<a class="btn" href="${esc(e.link)}" target="_blank" rel="noopener">Saiba mais</a>` : ""}${agendaBtn(e, e.nome, e.local)}</div>
+      <div class="botoes">${e.link && !fim && !esgot ? `<a class="btn" href="${esc(e.link)}" target="_blank" rel="noopener">${esc(e.status || "Saiba mais")}</a>` : ""}</div>
     </div>
   </article>`; }).join("") : `<p class="vazio">Nenhum evento marcado por enquanto. Volte logo, a gente avisa por aqui.</p>`;
 
@@ -377,7 +357,7 @@ $("#inscr").innerHTML = (typeof INSCRICOES !== "undefined" && INSCRICOES.length)
       <span class="tag${fechada ? " fim" : ""}">${esc(status)}</span>
       <h3>${esc(f.nome)}</h3>
       ${f.descricao ? `<p class="desc">${esc(f.descricao)}</p>` : ""}
-      <div class="botoes">${f.link && aberta ? `<a class="btn" href="${esc(f.link)}" target="_blank" rel="noopener">Inscrever-se</a>` : ""}${agendaBtn(f, f.nome, f.local)}</div>
+      <div class="botoes">${f.link && aberta ? `<a class="btn" href="${esc(f.link)}" target="_blank" rel="noopener">Inscrever-se</a>` : ""}</div>
     </div>
   </article>`; }).join("") : `<p class="vazio">As inscrições abrem em breve. Fique de olho por aqui e nas nossas redes.</p>`;
 
