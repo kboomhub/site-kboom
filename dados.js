@@ -23,8 +23,8 @@ const CONFIG = {
 // "status": se escrever Esgotado ou Encerrado, a etiqueta fica vermelha.
 // "link": endereco do ingresso ou do post. Deixe "" para nao mostrar o botao.
 const EVENTOS = [
-  { dia: "20", mes: "Nov", nome: "All-K Party LEVEL UP", local: "Bunker, Balneário Camboriú - SC", status: "Ingressos disponíveis", link: "https://articket.com.br/e/7326/all-k-party-level-up" },
-  { dia: "19 e 20", mes: "Dez", nome: "OMAKE EDIÇÃO DE NATAL", local: "Parque Dom Bosco, Itajaí-SC", status: "Ingressos disponíveis", link: "https://supertixs.com/e/omakenatal2026" }
+  { dia: "20", mes: "Nov", data: "2026-11-20", nome: "All-K Party LEVEL UP", local: "Bunker, Balneário Camboriú - SC", status: "Ingressos disponíveis", link: "https://articket.com.br/e/7326/all-k-party-level-up" },
+  { dia: "19 e 20", mes: "Dez", data: "2026-12-19", fim: "2026-12-20", nome: "OMAKE EDIÇÃO DE NATAL", local: "Parque Dom Bosco, Itajaí-SC", status: "Ingressos disponíveis", link: "https://supertixs.com/e/omakenatal2026" }
 ];
 
 // ---------- 3) GALERIA (ALBUNS DE FOTOS) ----------
@@ -66,6 +66,9 @@ const TEXTOS = {
   inscricoes_titulo: "Inscrições",
   inscricoes_intro: "Garanta sua vaga: é só clicar e preencher o formulário.",
 
+  torcida_titulo: "Todo fandom cabe aqui",
+  torcida_texto: "Qual é o seu lightstick?",
+
   quem_titulo: "Quem somos",
   quem_p1: "O Kboom é um hub feito de fã pra fã. Nasceu pra juntar quem vive K-pop e cultura pop na cena de Itajaí e região.",
   quem_p2: "Viver eras completas é saber que tudo precisa de conceito e cuidado. Por isso a gente faz consultoria, planejamento e criação para eventos e fandoms."
@@ -81,6 +84,10 @@ const INSCRICOES = [
     descricao: "20 de dezembro às 17h30 · Parque Dom Bosco, Rua José Gall, 75 · Itajaí/SC",
     dia: "20",
     mes: "Dez",
+    data: "2026-12-20",   // dia do evento (aparece "Adicionar à agenda")
+    hora: "17:30",        // opcional
+    local: "Parque Dom Bosco, Rua José Gall, 75 - Itajaí/SC",
+    // ate: "2026-12-10",   // opcional: último dia das inscrições. Depois dele fecha sozinho.
     status: "Abertas",
     link: "https://docs.google.com/forms/d/e/1FAIpQLSfIibRn09ZeLt7Phz3RAiayqtbjTt9Jlob_oVFHSxsEJECRMA/viewform"
   },
