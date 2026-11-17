@@ -79,9 +79,10 @@ const INSCRICOES = [
   {
     nome: "Concurso K-pop Cover Dance — OMAKE 2026",
     descricao: "20 de dezembro às 17h30 · Parque Dom Bosco, Rua José Gall, 75 · Itajaí/SC",
-    destaque: "20 Dez",
+    dia: "20",
+    mes: "Dez",
     status: "Abertas",
     link: "https://docs.google.com/forms/d/e/1FAIpQLSfIibRn09ZeLt7Phz3RAiayqtbjTt9Jlob_oVFHSxsEJECRMA/viewform"
   },
-  // Para adicionar outra inscrição, copie o bloco acima, cole aqui e troque os textos.
+  // Para adicionar outra inscrição (dia e mes aparecem na faixa colorida, como nos eventos), copie o bloco acima, cole aqui e troque os textos.
 ];
