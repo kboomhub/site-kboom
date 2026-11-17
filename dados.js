@@ -67,7 +67,7 @@ const TEXTOS = {
   inscricoes_intro: "Garanta sua vaga: é só clicar e preencher o formulário.",
 
   torcida_titulo: "Todo fandom cabe aqui",
-  torcida_texto: "Qual é o seu lightstick?",
+  torcida_texto: "Qual é o seu?",
 
   quem_titulo: "Quem somos",
   quem_p1: "O Kboom é um hub feito de fã pra fã. Nasceu pra juntar quem vive K-pop e cultura pop na cena de Itajaí e região.",
