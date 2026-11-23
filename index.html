@@ -329,7 +329,9 @@ function selo(e) {
   return `<span class="selo"><i>faltam</i><b>${n}</b><i>dias</i></span>`;
 }
 
-$("#lista").innerHTML = EVENTOS.length ? EVENTOS.map(e => {
+const tdata = e => e.data ? +dt(e.data) : 9e15;
+const PROX = EVENTOS.filter(e => !passou(e)).sort((a, b) => tdata(a) - tdata(b));
+$("#lista").innerHTML = PROX.length ? PROX.map(e => {
   const fim = passou(e);
   const esgot = /esgot|encerr/i.test(e.status || "");
   const status = fim ? "Encerrado" : e.status;
