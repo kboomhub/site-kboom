@@ -46,6 +46,13 @@ const ALBUNS = [
     pasta: "fotos/kpopween",
     ajuste: "contain", cor: "#c32337",
     fotos: Array.from({ length: 92 }, (_, i) => `kpopween (${i + 1}).jpg`)
+  },
+  {
+    nome: "OMAKE DE INVERNO",
+    data: "Ago 2026",
+    pasta: "fotos/omake-inverno",
+    ajuste: "contain", cor: "#8fd3ff",
+    fotos: Array.from({ length: 115 }, (_, i) => `omake-inverno (${i + 1}).jpg`)
   }
 ];
 
@@ -67,7 +74,7 @@ const TEXTOS = {
   inscricoes_intro: "Garanta sua vaga: é só clicar e preencher o formulário.",
 
   torcida_titulo: "Todo fandom cabe aqui",
-  torcida_texto: "Qual é o seu?",
+  torcida_texto: "Qual é o seu lightstick?",
 
   quem_titulo: "Quem somos",
   quem_p1: "O Kboom é um hub feito de fã pra fã. Nasceu pra juntar quem vive K-pop e cultura pop na cena de Itajaí e região.",
