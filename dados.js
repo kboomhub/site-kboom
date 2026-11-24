@@ -20,7 +20,7 @@ const CONFIG = {
 // Cada evento e um bloco { ... }, separado por virgula.
 // Para ADICIONAR: copie um bloco inteiro, cole abaixo e troque os textos.
 // Para REMOVER: apague o bloco inteiro (com a virgula).
-// "status": se escrever Esgotado ou Encerrado, a etiqueta fica vermelha.
+// "status": e o texto do botao (ex: Ingressos disponíveis). Se escrever Esgotado ou Encerrado, o botao some e aparece uma etiqueta vermelha.
 // "link": endereco do ingresso ou do post. Deixe "" para nao mostrar o botao.
 const EVENTOS = [
   { dia: "20", mes: "Nov", data: "2026-11-20", nome: "All-K Party LEVEL UP", local: "Bunker, Balneário Camboriú - SC", status: "Ingressos disponíveis", link: "https://articket.com.br/e/7326/all-k-party-level-up" },
@@ -30,13 +30,19 @@ const EVENTOS = [
 // ---------- 3) GALERIA (ALBUNS DE FOTOS) ----------
 // Cada album e um bloco { ... }. Coloque o mais NOVO por primeiro.
 // Para um album novo: crie uma pasta em "fotos", suba as fotos e copie o modelo.
-// A PRIMEIRA foto da lista vira a capa do album.
+// A capa do album e a PRIMEIRA foto da lista, a nao ser que voce escolha outra com "capa":
+//   capa: 12                  -> usa a foto numero 12 da lista (sem renomear nada)
+//   capa: "capa.jpg"          -> usa um arquivo que esta na pasta do album
+// Foto deitada preenche a capa inteira sozinha; foto em pe aparece inteira sobre a cor do album.
+// Opcionais: ajuste_capa: "cover" (sempre preencher) ou "contain" (sempre inteira);
+//            capa_foco: "50% 20%" (muda a parte que aparece quando a foto e cortada: esquerda-direita, cima-baixo).
 //
 // MODELO:
 //   {
 //     nome: "Nome do evento",
 //     data: "Dez 2026",
 //     pasta: "fotos/show-dezembro",
+//     capa: 5,
 //     fotos: ["001.jpg", "002.jpg", "003.jpg"]
 //   },
 const ALBUNS = [
@@ -51,6 +57,7 @@ const ALBUNS = [
     nome: "OMAKE DE INVERNO",
     data: "Ago 2026",
     pasta: "fotos/omake-inverno",
+    // capa: 12,   // <- tire as barras e troque o numero para escolher a foto da capa
     ajuste: "contain", cor: "#8fd3ff",
     fotos: Array.from({ length: 115 }, (_, i) => `omake-inverno (${i + 1}).jpg`)
   }
