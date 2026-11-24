@@ -61,6 +61,15 @@ const ALBUNS = [
     ajuste_capa:"contain",
     ajuste: "contain", cor: "#8fd3ff",
     fotos: Array.from({ length: 115 }, (_, i) => `omake-inverno (${i + 1}).jpg`)
+  },
+   {
+    nome: "ALL-K PARTY: DEBUT EDITION",
+    data: "Ago 2026",
+    pasta: "fotos/allkdebut",
+    capa: 15,
+    ajuste_capa:"contain",
+    ajuste: "contain", cor: "#5b31ff",
+    fotos: Array.from({ length: 25 }, (_, i) => `allkdebut (${i + 1}).jpg`)
   }
 ];
 
