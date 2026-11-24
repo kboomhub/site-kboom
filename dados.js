@@ -69,7 +69,7 @@ const ALBUNS = [
     capa: 15,
     ajuste_capa:"contain",
     ajuste: "contain", cor: "#5b31ff",
-    fotos: Array.from({ length: 25 }, (_, i) => `allkdebut (${i + 1}).jpg`)
+  fotos: Array.from({ length: 25 }, (_, i) => `allkdebut (${i + 1}) .jpg`)
   }
 ];
 
