@@ -57,7 +57,7 @@ const ALBUNS = [
     nome: "OMAKE DE INVERNO",
     data: "Ago 2026",
     pasta: "fotos/omake-inverno",
-    // capa: 12,   // <- tire as barras e troque o numero para escolher a foto da capa
+    capa: 1
     ajuste: "contain", cor: "#8fd3ff",
     fotos: Array.from({ length: 115 }, (_, i) => `omake-inverno (${i + 1}).jpg`)
   }
