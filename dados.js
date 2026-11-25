@@ -52,7 +52,7 @@ const ALBUNS = [
     creditos: "Simas Gallery",
     data: "Nov 2026",
     pasta: "fotos/allklevelup",
-    // capa: 1,   // <- tire as barras e troque o numero para escolher a foto da capa
+    capa: 64,
     ajuste: "contain", cor: "#fbc4de",
     fotos: Array.from({ length: 152 }, (_, i) => `allklevelup (${i + 1}).jpg`)
   },
