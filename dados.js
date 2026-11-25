@@ -62,6 +62,8 @@ const ALBUNS = [
     creditos: "Kai e Gabi",
     data: "Nov 2026",
     pasta: "fotos/kpopween",
+    capa: 68,
+    ajuste_capa: "contain",
     ajuste: "contain", cor: "#c32337",
     fotos: Array.from({ length: 92 }, (_, i) => `kpopween (${i + 1}).jpg`)
   },
