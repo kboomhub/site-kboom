@@ -66,7 +66,7 @@ const ALBUNS = [
   },
   {
     nome: "OMAKE DE INVERNO",
-    creditos: "Kai e Gabi",
+    creditos: "Gabi",
     data: "Ago 2026",
     pasta: "fotos/omake-inverno",
     capa: 1,
@@ -76,7 +76,7 @@ const ALBUNS = [
   },
   {
     nome: "ALL-K PARTY: DEBUT EDITION",
-    creditos: "Kai e Gabi",
+    creditos: "Gabi",
     data: "Ago 2026",
     pasta: "fotos/allkdebut",
     capa: 15,
