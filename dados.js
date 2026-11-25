@@ -52,8 +52,7 @@ const ALBUNS = [
     creditos: "Simas Gallery",
     data: "Nov 2026",
     pasta: "fotos/allklevelup",
-    capa: 64,
-    ajuste_capa: "contain",
+    // capa: 1,   // <- tire as barras e troque o numero para escolher a foto da capa
     ajuste: "contain", cor: "#fbc4de",
     fotos: Array.from({ length: 152 }, (_, i) => `allklevelup (${i + 1}).jpg`)
   },
@@ -62,14 +61,12 @@ const ALBUNS = [
     creditos: "Kai e Gabi",
     data: "Nov 2026",
     pasta: "fotos/kpopween",
-    capa: 68,
-    ajuste_capa: "contain",
     ajuste: "contain", cor: "#c32337",
     fotos: Array.from({ length: 92 }, (_, i) => `kpopween (${i + 1}).jpg`)
   },
   {
     nome: "OMAKE DE INVERNO",
-    creditos: "Gabi",
+    creditos: "Kai e Gabi",
     data: "Ago 2026",
     pasta: "fotos/omake-inverno",
     capa: 1,
@@ -79,7 +76,7 @@ const ALBUNS = [
   },
   {
     nome: "ALL-K PARTY: DEBUT EDITION",
-    creditos: "Gabi",
+    creditos: "Kai e Gabi",
     data: "Ago 2026",
     pasta: "fotos/allkdebut",
     capa: 15,
@@ -87,6 +84,16 @@ const ALBUNS = [
     ajuste: "contain", cor: "#5b31ff",
     fotos: Array.from({ length: 25 }, (_, i) => `allkdebut (${i + 1}) .jpg`)
   }
+];
+
+// ---------- VIDEOS (YouTube) ----------
+// Para adicionar um video: copie o link do YouTube e cole em "link".
+// Os mais novos ficam em cima. "data" e "creditos" sao opcionais.
+// Se a lista ficar vazia, a aba Videos some do site.
+//   { titulo: "Random Play Dance - All-K Party", link: "https://www.youtube.com/watch?v=XXXXXXXXXXX", data: "Nov 2026", creditos: "Simas Gallery" },
+const VIDEOS = [
+  { titulo: "Random Play Dance - OMAKE DE INVERNO 2026", link: "https://www.youtube.com/watch?v=V883nLAJjiE" },
+  // { titulo: "Titulo do proximo video", link: "COLE O LINK AQUI", data: "Dez 2026", creditos: "Nome" },
 ];
 
 // ---------- 4) TEXTOS DO SITE ----------
@@ -103,6 +110,9 @@ const TEXTOS = {
   galeria_intro: "Confira as fotos e faça download.",
 
   inscricoes_titulo: "Inscrições",
+  videos_titulo: "Vídeos",
+  videos_intro: "Random play dance e outros momentos dos nossos eventos.",
+
   inscricoes_intro: "Garanta sua vaga: é só clicar e preencher o formulário.",
 
   torcida_titulo: "Todo fandom cabe aqui",
