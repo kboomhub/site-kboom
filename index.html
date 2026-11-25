@@ -163,6 +163,7 @@ figcaption a:hover{background:var(--verm)}
 .alb .capa.cov img,figure .foto.cov img{width:100%;height:100%;max-height:none;object-fit:cover}
 .alb .info{padding:10px 14px;border-top:3px solid var(--preto)}
 .alb b{display:block;font-size:1.35rem;line-height:1.15}
+.cred{display:block;font-size:.95rem;font-weight:500;margin-top:2px;opacity:.85}
 dialog{border:3px solid var(--preto);border-radius:18px;padding:0;background:var(--bege);color:var(--preto);width:min(1040px,94vw);max-height:90vh;box-shadow:8px 8px 0 var(--roxo)}
 dialog::backdrop{background:rgba(27,25,33,.85)}
 .topo{position:sticky;top:0;z-index:1;display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:10px;padding:14px 18px;background:var(--bege);border-bottom:3px solid var(--preto)}
@@ -260,7 +261,6 @@ footer .logo{width:140px;color:var(--rosa)}
     <h2 data-t="galeria_titulo">Galeria</h2>
     <p data-t="galeria_intro">Escolha o evento, ache você nas fotos e baixe só as suas.</p>
     <div class="grade" id="albuns"></div>
-    <p class="aviso" data-t="galeria_aviso">Se foi você na foto e preferir que ela saia daqui, é só chamar a gente.</p>
   </div>
 </section>
 
@@ -372,7 +372,7 @@ let atual = null, idx = 0;
 $("#albuns").innerHTML = ALBUNS.length ? ALBUNS.map((a, i) => `
   <button class="alb" type="button" data-i="${i}" aria-label="Abrir fotos de ${esc(a.nome)}">
     <div class="capa${capaCov(a) ? " cov" : ""}" style="background:${esc(a.cor || "#ffebce")}"><img src="${esc(capaDe(a).src)}" alt="" loading="lazy" style="object-position:${esc(a.capa_foco || "50% 50%")}"></div>
-    <div class="info"><b>${esc(a.nome)}</b>${esc(a.data || "")} · ${a.fotos.length} ${a.fotos.length === 1 ? "foto" : "fotos"}</div>
+    <div class="info"><b>${esc(a.nome)}</b>${esc(a.data || "")} · ${a.fotos.length} ${a.fotos.length === 1 ? "foto" : "fotos"}${a.creditos ? `<small class="cred">Fotos: ${esc(a.creditos)}</small>` : ""}</div>
   </button>`).join("") : `<p class="vazio">As primeiras fotos chegam em breve.</p>`;
 
 function ajustaCapa(img) {
@@ -385,7 +385,7 @@ $("#albuns").querySelectorAll("img").forEach(i => { if (i.complete) ajustaCapa(i
 
 function abrirAlbum(i) {
   atual = ALBUNS[i];
-  $("#atit").textContent = atual.nome;
+  $("#atit").innerHTML = esc(atual.nome) + (atual.creditos ? `<small class="cred">Fotos: ${esc(atual.creditos)}</small>` : "");
   $("#fotos").innerHTML = atual.fotos.map((f, j) => `
     <figure>
       <button class="foto${cov(atual) ? " cov" : ""}" type="button" data-j="${j}" aria-label="Ampliar foto ${j + 1}" style="background:${esc(atual.cor || "#ffebce")}"><img src="${esc(f.src)}" alt="Foto ${j + 1} de ${esc(atual.nome)}" loading="lazy"></button>

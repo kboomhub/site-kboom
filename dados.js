@@ -41,35 +41,46 @@ const EVENTOS = [
 //   {
 //     nome: "Nome do evento",
 //     data: "Dez 2026",
+//     creditos: "Nome do fotografo",   // aparece no card e dentro do album
 //     pasta: "fotos/show-dezembro",
 //     capa: 5,
 //     fotos: ["001.jpg", "002.jpg", "003.jpg"]
 //   },
 const ALBUNS = [
   {
+    nome: "ALL-K PARTY: LEVEL UP",
+    creditos: "Simas Gallery",
+    data: "Nov 2026",
+    pasta: "fotos/allklevelup",
+    // capa: 1,   // <- tire as barras e troque o numero para escolher a foto da capa
+    ajuste: "contain", cor: "#fbc4de",
+    fotos: Array.from({ length: 152 }, (_, i) => `allklevelup (${i + 1}).jpg`)
+  },
+  {
     nome: "KPOPWEEN",
+    creditos: "Kai e Gabi",
     data: "Nov 2026",
     pasta: "fotos/kpopween",
-    capa: 68,
-    ajuste_capa:"contain",
     ajuste: "contain", cor: "#c32337",
     fotos: Array.from({ length: 92 }, (_, i) => `kpopween (${i + 1}).jpg`)
   },
   {
     nome: "OMAKE DE INVERNO",
+    creditos: "Kai e Gabi",
     data: "Ago 2026",
     pasta: "fotos/omake-inverno",
     capa: 1,
-    ajuste_capa:"contain",
+    ajuste_capa: "contain",
     ajuste: "contain", cor: "#8fd3ff",
     fotos: Array.from({ length: 115 }, (_, i) => `omake-inverno (${i + 1}).jpg`)
   },
-   {
+  {
     nome: "ALL-K PARTY: DEBUT EDITION",
+    creditos: "Kai e Gabi",
     data: "Ago 2026",
     pasta: "fotos/allkdebut",
     capa: 15,
-    ajuste_capa:"contain",
+    ajuste_capa: "contain",
     ajuste: "contain", cor: "#5b31ff",
     fotos: Array.from({ length: 25 }, (_, i) => `allkdebut (${i + 1}) .jpg`)
   }
@@ -87,7 +98,6 @@ const TEXTOS = {
 
   galeria_titulo: "Galeria",
   galeria_intro: "Confira as fotos e faça download.",
-  galeria_aviso: "Créditos: Kai e Gabi.",
 
   inscricoes_titulo: "Inscrições",
   inscricoes_intro: "Garanta sua vaga: é só clicar e preencher o formulário.",
