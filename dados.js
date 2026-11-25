@@ -53,6 +53,7 @@ const ALBUNS = [
     data: "Nov 2026",
     pasta: "fotos/allklevelup",
     capa: 64,
+    ajuste_capa: "contain",
     ajuste: "contain", cor: "#fbc4de",
     fotos: Array.from({ length: 152 }, (_, i) => `allklevelup (${i + 1}).jpg`)
   },
