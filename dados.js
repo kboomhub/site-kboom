@@ -52,7 +52,8 @@ const ALBUNS = [
     creditos: "Simas Gallery",
     data: "Nov 2026",
     pasta: "fotos/allklevelup",
-    // capa: 1,   // <- tire as barras e troque o numero para escolher a foto da capa
+    capa: 64,
+    ajuste_capa: "contain",
     ajuste: "contain", cor: "#fbc4de",
     fotos: Array.from({ length: 152 }, (_, i) => `allklevelup (${i + 1}).jpg`)
   },
@@ -61,6 +62,8 @@ const ALBUNS = [
     creditos: "Kai e Gabi",
     data: "Nov 2026",
     pasta: "fotos/kpopween",
+    capa: 68,
+    ajuste_capa: "contain",
     ajuste: "contain", cor: "#c32337",
     fotos: Array.from({ length: 92 }, (_, i) => `kpopween (${i + 1}).jpg`)
   },
